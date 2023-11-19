@@ -7,7 +7,6 @@ export default function GeneralInfo({name, changeName, adress, changeAdress, pho
             <input placeholder="Email" className="input" type="text" value={email} onChange={changeEmail}></input>
             <input placeholder="Phone Number" className="input" type="number" value={phoneNumber} onChange={changePhoneNumber}></input>
             <input placeholder="Adress" className="input" type="text" value={adress} onChange={changeAdress}></input>
-            <button className="addButton">Add</button>
         </div>
     )
 }
