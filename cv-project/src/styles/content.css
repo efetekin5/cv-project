@@ -14,6 +14,8 @@
     padding: 2rem;
     border-radius: 1rem;
     margin-top: 2rem;
+    margin-bottom: 2rem;
+    padding-bottom: 0rem;
 }
 
 .formSection {
@@ -50,7 +52,7 @@
 }
 
 .cvContainer {
-    width: 30%;
+    width: 33%;
 }
 
 .cv {
@@ -111,7 +113,7 @@
 .phoneNumberText,
 .emailText {
     min-height: 1rem;
-    width: 10rem;
+    max-width: 10rem;
     overflow-wrap: break-word;
     font-family: 'Poppins', sans-serif;
     font-size: 1.5rem;
@@ -120,36 +122,77 @@
 .education,
 .experience {
     font-family: 'Poppins', sans-serif;
-    font-size: 2.5rem;
+    font-size: 3.5rem;
     margin-top: 1rem;
+    overflow-wrap: break-word;
 }
 
 .educationContainer {
-    display: flex;
-    width: 20rem;
+    width: 100%;
+    min-height: 100%;
 }
 
 .cveducation {
-    width: 10rem;
+    display: flex;
+    width: 100%;
+    margin-left: 0.3rem;
+    margin-top: 1.7rem;
 }
 
 .universityInfo {
     font-family: 'Poppins', sans-serif;
-    font-size: 1.5rem;
-    min-height: 5rem;
+    font-size: 1.45rem;
     overflow-wrap: break-word;
-    width: 10rem;
-    margin-top: 0.5rem;
+    width: 45%;
     font-weight: 500;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+}
+
+.collegeAndDateInfo {
+    overflow-wrap: break-word;
+    width: 45%;
 }
 
 .educationDateInfo {
-    margin-left: 8rem;
+    margin-left: 2rem;
     font-family: 'Poppins', sans-serif;
-    font-size: 1.5rem;
-    min-height: 5rem;
-    width: 10rem;
+    font-size: 1.45rem;
+    width: 100%;
+    overflow-wrap: break-word;
+    font-weight: 500;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+}
+
+.jobInfo {
+    display: flex;
+    margin-top: 2.5rem;
+    width: 100%;
+    overflow-wrap: break-word;
+}
+
+.jobDateInfo {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.45rem;
+    margin-left: 2.5rem;
+    width: 40%;
+    overflow-wrap: break-word;
+}
+
+.companyInfo {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.45rem;
+    width: 50%;
+    overflow-wrap: break-word;
+}
+
+.jobDescriptionInfo {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.45rem;
+    width: 100%;
     overflow-wrap: break-word;
     margin-top: 0.5rem;
-    font-weight: 500;
 }

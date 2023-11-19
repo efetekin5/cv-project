@@ -13,7 +13,7 @@ export default function Content() {
     const [phoneNumber, setPhoneNumber] = useState('');
     const [adress, setAdress] = useState('');
     const [education, setEducation] = useState([]);
-    const [workExperience, setworkExperience] = useState([]);
+    const [workExperience, setWorkExperience] = useState([]);
 
     function changeName(e) {
         setName(e.target.value);
@@ -38,15 +38,20 @@ export default function Content() {
         const universityStartDate = e.target[2].value;
         const universityEndDate = e.target[3].value;
         const id = uuidv4();
-        let newEducation = {id, degree, university, universityStartDate, universityEndDate};
+        const newEducation = {id, degree, university, universityStartDate, universityEndDate};
         setEducation((prevEducation) => [...prevEducation, newEducation]);
-        console.log(education);
     }
 
     function addWorkExperience(e) {
         e.preventDefault();
-        const jobTitle = e.target[0].value
-        console.log(jobTitle)
+        const jobTitle = e.target[0].value;
+        const company = e.target[1].value;
+        const jobStartDate = e.target[2].value;
+        const jobEndDate = e.target[3].value;
+        const description = e.target[4].value;
+        const id = uuidv4();
+        const newWorkExperience = {id, jobTitle, company, jobStartDate, jobEndDate, description};
+        setWorkExperience((prevWorkExperience) => [...prevWorkExperience, newWorkExperience]);
     }
 
     return(
