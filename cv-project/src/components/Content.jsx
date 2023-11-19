@@ -39,9 +39,14 @@ export default function Content() {
         const universityEndDate = e.target[3].value;
         const id = uuidv4();
         let newEducation = {id, degree, university, universityStartDate, universityEndDate};
-        setEducation((prevEducation) => prevEducation.concat(newEducation));
-        console.log(newEducation);
+        setEducation((prevEducation) => [...prevEducation, newEducation]);
         console.log(education);
+    }
+
+    function addWorkExperience(e) {
+        e.preventDefault();
+        const jobTitle = e.target[0].value
+        console.log(jobTitle)
     }
 
     return(
@@ -62,7 +67,7 @@ export default function Content() {
                     addEducation={addEducation}
                 ></Education>
                 <WorkExp
-
+                    addWorkExperience={addWorkExperience}
                 ></WorkExp>
             </div>
 
@@ -102,14 +107,14 @@ export default function Content() {
 
                     <hr className='cvLine'/>
                     
-                    <h3 className='education'>Education</h3>
+                    <h2 className='education'>Education</h2>
                     <CVEducation
                         education={education}
                     ></CVEducation>
 
-                    <h3 className='experience'>Experience</h3>
+                    <h2 className='experience'>Experience</h2>
                     <CVWorkExperience
-
+                        workExperience={workExperience}
                     ></CVWorkExperience>
                 </div>
             </div>

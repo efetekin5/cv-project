@@ -57,16 +57,18 @@
     margin-top: 2rem;
     width: 100%;
     border: 3px solid black;
-    height: 50vh;
+    min-height: 50vh;
     padding: 2rem;
 }
 
 .nameSurname {
-    width: 25rem;
+    width: 16rem;
     overflow-wrap: break-word;
     min-height: 5rem;
     font-family: 'Poppins', sans-serif;
     font-size: 5rem;
+    color: #a78bfa;
+    font-weight: bolder;
 }
 
 .generalInfo {
@@ -79,7 +81,6 @@
     height: 5px;
     background-color: black;
     margin-top: -1rem;
-    margin-bottom: 1rem;
 }
 
 .adressPhoneMail {
@@ -119,7 +120,8 @@
 .education,
 .experience {
     font-family: 'Poppins', sans-serif;
-    font-size: 2rem;
+    font-size: 2.5rem;
+    margin-top: 1rem;
 }
 
 .educationContainer {
@@ -129,4 +131,25 @@
 
 .cveducation {
     width: 10rem;
+}
+
+.universityInfo {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5rem;
+    min-height: 5rem;
+    overflow-wrap: break-word;
+    width: 10rem;
+    margin-top: 0.5rem;
+    font-weight: 500;
+}
+
+.educationDateInfo {
+    margin-left: 8rem;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5rem;
+    min-height: 5rem;
+    width: 10rem;
+    overflow-wrap: break-word;
+    margin-top: 0.5rem;
+    font-weight: 500;
 }

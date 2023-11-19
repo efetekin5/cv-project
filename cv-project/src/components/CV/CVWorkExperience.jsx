@@ -1,9 +1,10 @@
-export default function CVWorkExperience() {
+export default function CVWorkExperience({workExperience}) {
     return(
-        <>
-            <div className='experienceContainer'>
-            
-            </div>
-        </>
+        <div className='workexperienceContainer'>
+            {workExperience.map((exp) => {
+
+            })}
+        </div>
+    
     )
 }

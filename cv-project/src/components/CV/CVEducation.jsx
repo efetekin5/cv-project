@@ -1,14 +1,18 @@
+console.log('asdfdsf')
+
 export default function CVEducation({education}) {
     return(
         <div className="cveducation">
             {education.map((edu) => {
-                <div key={edu.id} className='educationContainer'>
-                    <p>{edu.degree}</p>
-                    <p>{edu.university}</p>
-                    <p>{edu.universityStartDate}</p>
-                    <p>{edu.universityEndDate}</p>
-                </div>
-            })}
+                return(
+                    <div key={edu.id} className='educationContainer'>
+                        <p className="universityInfo">{edu.degree} - {edu.university}</p>
+                        <p className="educationDateInfo">{edu.universityStartDate} - {edu.universityEndDate}</p> 
+                    </div>
+                )
+            })}      
         </div>
     )
 }
+
+console.log('a')
