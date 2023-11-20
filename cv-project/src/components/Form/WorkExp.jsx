@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-export default function WorkExp({addWorkExperience}) {
+export default function WorkExp({workExperience, addWorkExperience}) {
     const [jobTitle, setJobTitle] = useState('');
     const [company, setCompany] = useState('');
     const [startDate, setStartDate] = useState('');
@@ -37,5 +37,7 @@ export default function WorkExp({addWorkExperience}) {
             <textarea placeholder="Description" className="input description" value={description} onChange={changeDescription}></textarea>
             <button className="addButton" type="submit">Add</button>
         </form>
+
+        {w}
     )
 }
