@@ -36,11 +36,18 @@ export default function WorkExp({workExperience, addWorkExperience}) {
                 <input placeholder="Start Date" className="input" type="text" value={startDate} onChange={changeStartDate}></input>
                 <input placeholder="End Date" className="input" type="text" value={endDate} onChange={changeEndDate}></input>
                 <textarea placeholder="Description" className="input description" value={description} onChange={changeDescription}></textarea>
-                <button className="addButton" type="submit">Add</button>
+                {workExperience.length > 0 ? (
+                    <div className="saveAndDelete">
+                        <button className="save">Save</button>
+                        <button className="delete">Delete</button>
+                    </div>
+                ) : (
+                    <button className="addButton" type="submit">Add</button>
+                )}
             </form>
 
             {workExperience.length > 0 && (
-                workExperience.map((exp) => (
+                workExperience.map((exp, index) => (
                     <form key={exp.id} className="formSection" onSubmit={addWorkExperience}>
                         <h5 className="formHeader">Work Experince</h5>
                         <input placeholder="Job Title" className="input" type="text" ></input>
@@ -48,7 +55,14 @@ export default function WorkExp({workExperience, addWorkExperience}) {
                         <input placeholder="Start Date" className="input" type="text" ></input>
                         <input placeholder="End Date" className="input" type="text" ></input>
                         <textarea placeholder="Description" className="input description"></textarea>
-                        <button className="addButton" type="submit">Add</button>
+                        {workExperience[index + 1] === undefined ? (
+                            <button className="addButton" type="submit">Add</button>
+                        ) : (
+                            <div className="saveAndDelete">
+                                <button className="save">Save</button>
+                                <button className="delete">Delete</button>
+                            </div>
+                        )}
                     </form>                  
                 ))
             )}
