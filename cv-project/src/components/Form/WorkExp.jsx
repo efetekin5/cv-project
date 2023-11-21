@@ -27,7 +27,6 @@ export default function WorkExp({workExperience, addWorkExperience}) {
         setDescription(e.target.value);
     }
 
-    console.log(jobTitle);
     return (
         <div className="workExperienceFormContainer">
             <form key={0} className="formSection" onSubmit={addWorkExperience}>
@@ -44,7 +43,7 @@ export default function WorkExp({workExperience, addWorkExperience}) {
                 workExperience.map((exp) => (
                     <form key={exp.id} className="formSection" onSubmit={addWorkExperience}>
                         <h5 className="formHeader">Work Experince</h5>
-                        <input placeholder="Job Title" className="input" type="text" value={exp.jotTitle}></input>
+                        <input placeholder="Job Title" className="input" type="text" ></input>
                         <input placeholder="Company" className="input" type="text" ></input>
                         <input placeholder="Start Date" className="input" type="text" ></input>
                         <input placeholder="End Date" className="input" type="text" ></input>

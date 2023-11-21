@@ -5,7 +5,6 @@ import Education from './Form/Education'
 import WorkExp from './Form/WorkExp'
 import CVEducation from './CV/CVEducation'
 import CVWorkExperience from './CV/CVWorkExperience'
-import { v4 as uuidv4 } from 'uuid';
 
 export default function Content() {
     const [name, setName] = useState('');
@@ -39,7 +38,8 @@ export default function Content() {
         const university = e.target[1].value;
         const universityStartDate = e.target[2].value;
         const universityEndDate = e.target[3].value;
-        const newEducation = {id, degree, university, universityStartDate, universityEndDate};
+        const added = true;
+        const newEducation = {id, degree, university, universityStartDate, universityEndDate, added};
         setEducation((prevEducation) => [...prevEducation, newEducation]);
         educationIndex++;
     }
