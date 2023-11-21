@@ -31,18 +31,20 @@ export default function Content() {
         setAdress(e.target.value);
     }
 
+    let educationIndex = 1;
     function addEducation(e) {
         e.preventDefault();
-        const id = uuidv4();
+        const id = educationIndex;
         const degree = e.target[0].value;
         const university = e.target[1].value;
         const universityStartDate = e.target[2].value;
         const universityEndDate = e.target[3].value;
         const newEducation = {id, degree, university, universityStartDate, universityEndDate};
         setEducation((prevEducation) => [...prevEducation, newEducation]);
+        educationIndex++;
     }
 
-    let index = 0;
+    let workExperienceIndex = 1;
     function addWorkExperience(e) {
         e.preventDefault();
         const jobTitle = e.target[0].value;
@@ -50,10 +52,10 @@ export default function Content() {
         const jobStartDate = e.target[2].value;
         const jobEndDate = e.target[3].value;
         const description = e.target[4].value;
-        const id = index;
+        const id = workExperienceIndex;
         const newWorkExperience = {id, jobTitle, company, jobStartDate, jobEndDate, description};
         setWorkExperience((prevWorkExperience) => [...prevWorkExperience, newWorkExperience]);
-        index++;
+        workExperienceIndex++;
     }
 
     return(
@@ -72,7 +74,6 @@ export default function Content() {
                 <Education
                     education={education}
                     addEducation={addEducation}
-                    setEducation={setEducation}
                 ></Education>
                 <WorkExp
                     workExperience={workExperience}

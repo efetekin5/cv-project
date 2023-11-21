@@ -1,7 +1,6 @@
 import { useState } from "react"
-import { v4 as uuidv4 } from 'uuid'
 
-export default function Education({education, addEducation, setEducation}) {
+export default function Education({education, addEducation}) {
     const [degree, setDegree] = useState('');
     const [university, setUniversity] = useState('');
     const [startDate, setStartDate] = useState('');
@@ -25,7 +24,7 @@ export default function Education({education, addEducation, setEducation}) {
 
     return (
         <div className="educationFormContainer">
-          <form className="formSection" onSubmit={addEducation}>
+          <form key={0} className="formSection" onSubmit={addEducation}>
             <h5 className="formHeader">Education</h5>
             <input placeholder="Degree" className="input" type="text" value={degree} onChange={changeDegree}></input>
             <input placeholder="University" className="input" type="text" value={university} onChange={changeUniversity}></input>

@@ -27,17 +27,32 @@ export default function WorkExp({workExperience, addWorkExperience}) {
         setDescription(e.target.value);
     }
 
+    console.log(jobTitle);
     return (
-        <form className="formSection" onSubmit={addWorkExperience}>
-            <h5 className="formHeader">Work Experince</h5>
-            <input placeholder="Job Title" className="input" type="text" value={jobTitle} onChange={changejobTitle}></input>
-            <input placeholder="Company" className="input" type="text" value={company} onChange={changecompany}></input>
-            <input placeholder="Start Date" className="input" type="text" value={startDate} onChange={changeStartDate}></input>
-            <input placeholder="End Date" className="input" type="text" value={endDate} onChange={changeEndDate}></input>
-            <textarea placeholder="Description" className="input description" value={description} onChange={changeDescription}></textarea>
-            <button className="addButton" type="submit">Add</button>
-        </form>
+        <div className="workExperienceFormContainer">
+            <form key={0} className="formSection" onSubmit={addWorkExperience}>
+                <h5 className="formHeader">Work Experince</h5>
+                <input placeholder="Job Title" className="input" type="text" value={jobTitle} onChange={changejobTitle}></input>
+                <input placeholder="Company" className="input" type="text" value={company} onChange={changecompany}></input>
+                <input placeholder="Start Date" className="input" type="text" value={startDate} onChange={changeStartDate}></input>
+                <input placeholder="End Date" className="input" type="text" value={endDate} onChange={changeEndDate}></input>
+                <textarea placeholder="Description" className="input description" value={description} onChange={changeDescription}></textarea>
+                <button className="addButton" type="submit">Add</button>
+            </form>
 
-        {w}
+            {workExperience.length > 0 && (
+                workExperience.map((exp) => (
+                    <form key={exp.id} className="formSection" onSubmit={addWorkExperience}>
+                        <h5 className="formHeader">Work Experince</h5>
+                        <input placeholder="Job Title" className="input" type="text" value={exp.jotTitle}></input>
+                        <input placeholder="Company" className="input" type="text" ></input>
+                        <input placeholder="Start Date" className="input" type="text" ></input>
+                        <input placeholder="End Date" className="input" type="text" ></input>
+                        <textarea placeholder="Description" className="input description"></textarea>
+                        <button className="addButton" type="submit">Add</button>
+                    </form>                  
+                ))
+            )}
+        </div>
     )
 }
