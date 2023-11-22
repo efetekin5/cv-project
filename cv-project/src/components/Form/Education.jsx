@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-export default function Education({education, addEducation}) {
+export default function Education({education, addEducation, saveEducation}) {
     const [degree, setDegree] = useState('');
     const [university, setUniversity] = useState('');
     const [startDate, setStartDate] = useState('');
@@ -24,7 +24,7 @@ export default function Education({education, addEducation}) {
 
     return (
         <div className="educationFormContainer">
-          <form key={0} className="formSection" onSubmit={addEducation}>
+          <form key={'e0'} className="formSection" onSubmit={addEducation}>
             <h5 className="formHeader">Education</h5>
             <input placeholder="Degree" className="input" type="text" value={degree} onChange={changeDegree}></input>
             <input placeholder="University" className="input" type="text" value={university} onChange={changeUniversity}></input>
@@ -32,7 +32,7 @@ export default function Education({education, addEducation}) {
             <input placeholder="End Date" className="input" type="text" value={endDate} onChange={changeEndDate}></input>
             {education.length > 0 ? (
               <div className="saveAndDelete">
-                <button className="save">Save</button>
+                <button className="save" type="button" onClick={(e) => {saveEducation(e, 0)}}>Save</button>
                 <button className="delete">Delete</button>
               </div>
             ) : (
@@ -52,7 +52,7 @@ export default function Education({education, addEducation}) {
                   <button className="addButton" type="submit">Add</button>
                 ) : (
                   <div className="saveAndDelete">
-                    <button className="save">Save</button>
+                    <button className="save" type="button" onClick={(e) => {saveEducation(e, edu.id + 1)}}>Save</button>
                     <button className="delete">Delete</button>
                   </div>
                 )}

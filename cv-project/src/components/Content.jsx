@@ -30,7 +30,32 @@ export default function Content() {
         setAdress(e.target.value);
     }
 
-    let educationIndex = 1;
+    function saveEducation(e, id) {
+        const degree = e.target.parentNode.parentNode[0].value;
+        const university = e.target.parentNode.parentNode[1].value;
+        const universityStartDate = e.target.parentNode.parentNode[2].value;
+        const universityEndDate = e.target.parentNode.parentNode[3].value;
+
+        const updatedEducation = education.map((edu) => {
+            if(edu.id === id) {
+                return(
+                    {
+                        ...edu,
+                        degree,
+                        university,
+                        universityStartDate,
+                        universityEndDate,
+                    }
+                )
+            } else {
+                return edu;
+            }
+        })
+
+        setEducation(updatedEducation);
+    }
+
+    const educationIndex = education.length;
     function addEducation(e) {
         e.preventDefault();
         const id = educationIndex;
@@ -38,13 +63,11 @@ export default function Content() {
         const university = e.target[1].value;
         const universityStartDate = e.target[2].value;
         const universityEndDate = e.target[3].value;
-        const added = true;
-        const newEducation = {id, degree, university, universityStartDate, universityEndDate, added};
+        const newEducation = {id, degree, university, universityStartDate, universityEndDate};
         setEducation((prevEducation) => [...prevEducation, newEducation]);
-        educationIndex++;
     }
 
-    let workExperienceIndex = 1;
+    let workExperienceIndex = workExperience.length;
     function addWorkExperience(e) {
         e.preventDefault();
         const jobTitle = e.target[0].value;
@@ -55,7 +78,6 @@ export default function Content() {
         const id = workExperienceIndex;
         const newWorkExperience = {id, jobTitle, company, jobStartDate, jobEndDate, description};
         setWorkExperience((prevWorkExperience) => [...prevWorkExperience, newWorkExperience]);
-        workExperienceIndex++;
     }
 
     return(
@@ -74,6 +96,7 @@ export default function Content() {
                 <Education
                     education={education}
                     addEducation={addEducation}
+                    saveEducation={saveEducation}
                 ></Education>
                 <WorkExp
                     workExperience={workExperience}

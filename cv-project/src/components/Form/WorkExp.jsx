@@ -29,7 +29,7 @@ export default function WorkExp({workExperience, addWorkExperience}) {
 
     return (
         <div className="workExperienceFormContainer">
-            <form key={0} className="formSection" onSubmit={addWorkExperience}>
+            <form key={'w0'} className="formSection" onSubmit={addWorkExperience}>
                 <h5 className="formHeader">Work Experince</h5>
                 <input placeholder="Job Title" className="input" type="text" value={jobTitle} onChange={changejobTitle}></input>
                 <input placeholder="Company" className="input" type="text" value={company} onChange={changecompany}></input>
