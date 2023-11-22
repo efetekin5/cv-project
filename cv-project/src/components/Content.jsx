@@ -30,6 +30,18 @@ export default function Content() {
         setAdress(e.target.value);
     }
 
+    const educationIndex = education.length;
+    function addEducation(e) {
+        e.preventDefault();
+        const id = educationIndex;
+        const degree = e.target[0].value;
+        const university = e.target[1].value;
+        const universityStartDate = e.target[2].value;
+        const universityEndDate = e.target[3].value;
+        const newEducation = {id, degree, university, universityStartDate, universityEndDate};
+        setEducation((prevEducation) => [...prevEducation, newEducation]);
+    }
+
     function saveEducation(e, id) {
         const degree = e.target.parentNode.parentNode[0].value;
         const university = e.target.parentNode.parentNode[1].value;
@@ -55,18 +67,6 @@ export default function Content() {
         setEducation(updatedEducation);
     }
 
-    const educationIndex = education.length;
-    function addEducation(e) {
-        e.preventDefault();
-        const id = educationIndex;
-        const degree = e.target[0].value;
-        const university = e.target[1].value;
-        const universityStartDate = e.target[2].value;
-        const universityEndDate = e.target[3].value;
-        const newEducation = {id, degree, university, universityStartDate, universityEndDate};
-        setEducation((prevEducation) => [...prevEducation, newEducation]);
-    }
-
     let workExperienceIndex = workExperience.length;
     function addWorkExperience(e) {
         e.preventDefault();
@@ -78,6 +78,33 @@ export default function Content() {
         const id = workExperienceIndex;
         const newWorkExperience = {id, jobTitle, company, jobStartDate, jobEndDate, description};
         setWorkExperience((prevWorkExperience) => [...prevWorkExperience, newWorkExperience]);
+    }
+
+    function saveWorkExp(e, id) {
+        const jobTitle = e.target.parentNode.parentNode[0].value;
+        const company = e.target.parentNode.parentNode[1].value;
+        const jobStartDate = e.target.parentNode.parentNode[2].value;
+        const jobEndDate = e.target.parentNode.parentNode[3].value;
+        const description = e.target.parentNode.parentNode[4].value;
+
+        const updatedWorkExp = workExperience.map((exp) => {
+            if(exp.id === id) {
+                return(
+                    {
+                        ...exp,
+                        jobTitle,
+                        company,
+                        jobStartDate,
+                        jobEndDate,
+                        description
+                    }
+                )
+            } else {
+                return exp;
+            }
+        })
+
+        setWorkExperience(updatedWorkExp);
     }
 
     return(
@@ -101,6 +128,7 @@ export default function Content() {
                 <WorkExp
                     workExperience={workExperience}
                     addWorkExperience={addWorkExperience}
+                    saveWorkExp={saveWorkExp}
                 ></WorkExp>
             </div>
 
