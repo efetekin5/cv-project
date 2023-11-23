@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-export default function Education({education, addEducation, saveEducation}) {
+export default function Education({education, addEducation, saveEducation, deleteEducation}) {
     const [degree, setDegree] = useState('');
     const [university, setUniversity] = useState('');
     const [startDate, setStartDate] = useState('');
@@ -24,41 +24,30 @@ export default function Education({education, addEducation, saveEducation}) {
 
     return (
         <div className="educationFormContainer">
-          <form key={'e0'} className="formSection" onSubmit={addEducation}>
-            <h5 className="formHeader">Education</h5>
-            <input placeholder="Degree" className="input" type="text" value={degree} onChange={changeDegree} required></input>
-            <input placeholder="University" className="input" type="text" value={university} onChange={changeUniversity} required></input>
-            <input placeholder="Start Date" className="input" type="text" value={startDate} onChange={changeStartDate} required></input>
-            <input placeholder="End Date" className="input" type="text" value={endDate} onChange={changeEndDate} required></input>
-            {education.length > 0 ? (
-              <div className="saveAndDelete">
-                <button className="save" type="button" onClick={(e) => {saveEducation(e, 0)}}>Save</button>
-                <button className="delete">Delete</button>
-              </div>
-            ) : (
-              <button className="addButton" type="submit">Add</button>
-            )}
-          </form>
-    
           {education.length > 0 && (
-            education.map((edu, index) => (
+            education.map((edu) => (
               <form key={edu.id} className="formSection" onSubmit={addEducation}>
                 <h5 className="formHeader">Education</h5>
-                <input placeholder="Degree" className="input" type="text" required></input>
-                <input placeholder="University" className="input" type="text" required></input>
-                <input placeholder="Start Date" className="input" type="text" required></input>
-                <input placeholder="End Date" className="input" type="text" required></input>
-                {education[index + 1] === undefined ? (
-                  <button className="addButton" type="submit">Add</button>
-                ) : (
-                  <div className="saveAndDelete">
-                    <button className="save" type="button" onClick={(e) => {saveEducation(e, edu.id + 1)}}>Save</button>
-                    <button className="delete">Delete</button>
-                  </div>
-                )}
+                <input placeholder="Degree" className="input" type="text" defaultValue={edu.degree} required></input>
+                <input placeholder="University" className="input" type="text" defaultValue={edu.university} required></input>
+                <input placeholder="Start Date" className="input" type="text" defaultValue={edu.universityStartDate} required></input>
+                <input placeholder="End Date" className="input" type="text" defaultValue={edu.universityEndDate} required></input>
+                <div className="saveAndDelete">
+                  <button className="save" type="button" onClick={(e) => {saveEducation(e, edu.id)}}>Save</button>
+                  <button className="delete" type="button" onClick={() => {deleteEducation(edu.id)}}>Delete</button>
+                </div>
               </form>
             ))
           )}
+
+          <form key={'eduForm0'} className="formSection" onSubmit={addEducation}>
+            <h5 className="formHeader">Education</h5>
+            <input placeholder="Degree" className="input" type="text"  required></input>
+            <input placeholder="University" className="input" type="text"  required></input>
+            <input placeholder="Start Date" className="input" type="text"  required></input>
+            <input placeholder="End Date" className="input" type="text"  required></input>
+            <button className="addButton" type="submit">Add</button>
+          </form>
         </div>
       );
 }

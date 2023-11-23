@@ -5,6 +5,7 @@ import Education from './Form/Education'
 import WorkExp from './Form/WorkExp'
 import CVEducation from './CV/CVEducation'
 import CVWorkExperience from './CV/CVWorkExperience'
+import { v4 as uuid } from 'uuid'
 
 export default function Content() {
     const [name, setName] = useState('');
@@ -30,16 +31,19 @@ export default function Content() {
         setAdress(e.target.value);
     }
 
-    const educationIndex = education.length;
     function addEducation(e) {
         e.preventDefault();
-        const id = educationIndex;
+        const id = uuid();
         const degree = e.target[0].value;
         const university = e.target[1].value;
         const universityStartDate = e.target[2].value;
         const universityEndDate = e.target[3].value;
         const newEducation = {id, degree, university, universityStartDate, universityEndDate};
         setEducation((prevEducation) => [...prevEducation, newEducation]);
+
+        for(let i = 0; i < e.target.length; i++) {
+            e.target[i].value = '';
+        }
     }
 
     function saveEducation(e, id) {
@@ -67,6 +71,12 @@ export default function Content() {
         setEducation(updatedEducation);
     }
 
+    function deleteEducation(id) {
+        const updatedEducation = education.filter((edu) => edu.id !== id);
+
+        setEducation(updatedEducation);
+    }
+
     let workExperienceIndex = workExperience.length;
     function addWorkExperience(e) {
         e.preventDefault();
@@ -78,6 +88,11 @@ export default function Content() {
         const id = workExperienceIndex;
         const newWorkExperience = {id, jobTitle, company, jobStartDate, jobEndDate, description};
         setWorkExperience((prevWorkExperience) => [...prevWorkExperience, newWorkExperience]);
+
+        for(let i = 0; i < e.target.length; i++) {
+            console.log(e.target[i].value)
+            e.target[i].value = '';
+        }
     }
 
     function saveWorkExp(e, id) {
@@ -107,6 +122,12 @@ export default function Content() {
         setWorkExperience(updatedWorkExp);
     }
 
+    function deleteWorkExperience(id) {
+        const updatedWorkExperience = workExperience.filter((exp) => exp.id !== id);
+
+        setWorkExperience(updatedWorkExperience);
+    }
+
     return(
         <div className="content">
             <div className="form">
@@ -124,11 +145,14 @@ export default function Content() {
                     education={education}
                     addEducation={addEducation}
                     saveEducation={saveEducation}
+                    deleteEducation={deleteEducation}
+                    setEducation={setEducation}
                 ></Education>
                 <WorkExp
                     workExperience={workExperience}
                     addWorkExperience={addWorkExperience}
                     saveWorkExp={saveWorkExp}
+                    deleteWorkExperience={deleteWorkExperience}
                 ></WorkExp>
             </div>
 
