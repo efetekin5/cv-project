@@ -90,7 +90,6 @@ export default function Content() {
         setWorkExperience((prevWorkExperience) => [...prevWorkExperience, newWorkExperience]);
 
         for(let i = 0; i < e.target.length; i++) {
-            console.log(e.target[i].value)
             e.target[i].value = '';
         }
     }

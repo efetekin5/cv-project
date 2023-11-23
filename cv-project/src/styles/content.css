@@ -64,7 +64,7 @@
 }
 
 .nameSurname {
-    width: 16rem;
+    width: 60%;
     overflow-wrap: break-word;
     min-height: 5rem;
     font-family: 'Poppins', sans-serif;
@@ -222,4 +222,56 @@
     border-radius: 0.5rem;
     font-family: 'Poppins', sans-serif;
     font-size: 2rem;
+}
+
+@media (max-width: 1250px) {
+    .content {
+        align-items: center;
+        flex-direction: column;
+        margin-bottom: 2rem;
+        row-gap: 2rem;
+    }
+
+    .cvContainer {
+        width: 70%;
+    }
+
+    .form {
+        width: 70%;
+        margin-top: 2rem;
+        margin-bottom: 0rem;
+    }
+
+    .cv {
+        margin-top: 0rem;
+    }
+}
+
+@media (max-width: 765px) {
+    .header {
+        height: 10rem;
+        padding-right: 2rem;
+    }
+
+    .cvGenerator {
+        font-size: 3.1rem;
+        margin-left: 1rem;
+    }
+
+    .form {
+        width: 95%;
+    }
+
+    .cvContainer {
+        width: 95%;
+    }
+
+    .cv {
+        padding: 1.2rem;
+    }
+
+    .education,
+    .experience {
+        font-size: 2.6rem;
+    }
 }

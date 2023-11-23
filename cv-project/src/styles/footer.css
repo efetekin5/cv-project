@@ -6,6 +6,7 @@
     justify-content: center;
     height: 6rem;
     column-gap: 1rem;
+    align-items: center;
 }
 
 .madeBy {
@@ -16,4 +17,17 @@
 
 .gitHubIcon {
     width: 4rem;
+}
+
+@media (max-width: 765px) {
+
+    .madeBy {
+        font-size: 2rem;
+    }
+
+    .gitHubIcon {
+        width: 3rem;
+    }
+
+    .footer
 }

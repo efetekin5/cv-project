@@ -1,5 +1,5 @@
 import '../styles/footer.css'
-import github from '../../public/github.png' 
+import github from '../../public/github.png'
 
 export default function Footer() {
     return(
